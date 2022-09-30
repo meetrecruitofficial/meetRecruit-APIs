@@ -2,10 +2,6 @@ const User = require ('../models/userModel');
 require('dotenv').config();
 const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
-const {
-    registerValidation,
-    loginValidation
-} = require ('../validators/joiValidator');
 
 
 class UserService{
@@ -33,7 +29,8 @@ class UserService{
             console.log('User created successfully :', savedUser);
             // res.json({status : 200}, savedUser) .. depricated 
             // res.status(200).json(savedUser)
-            return savedUser
+        const token = jwt.sign({id : savedUser._id},process.env.TOKEN_KEY)
+        return token;
         }
         catch (error){
             console.log(error)
@@ -48,6 +45,20 @@ class UserService{
             return token;
         }
     }
+
+    async getUsers() {
+    return await User.find({});
+  }
+
+  async getUsersCount() {
+    return await User.find({}).count();
+  }
+
+  async getUser(userId) {
+    const user = await User.findOne({ _id: userId });
+
+    return user;
+  }
 }
 
 module.export = new UserService;
