@@ -15,12 +15,14 @@ class UserService{
         const user =  new User ({
             firstname : data.fname,
             lastname : data.lname,
+            phone : data.phone,
             sex : data.sex,
             age : data.age,
             country : data.country,
             skills : data.skills,
             level : data.level,
-            email : date.email,
+            state: data.state,
+            email : data.email,
             password : hashedPassword,    // stores the hashed password
         })
 
@@ -61,4 +63,4 @@ class UserService{
   }
 }
 
-module.export = new UserService;
+module.exports = new UserService;

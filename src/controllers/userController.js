@@ -19,7 +19,7 @@ class UserController {
         const validDetails = registerValidation(req.body);
         const { error } = validDetails
         if (error) {
-            return res.status(400).json({message:error.details[0].message})
+            return res.status(400).json({error:error.details[0].message})
         }
         // check if email exist
         const exist = await User.findOne({email:req.body.email})
@@ -52,7 +52,7 @@ class UserController {
     async getUsers(req, res){
         const allUsers = await getUsers();
         if(allUsers){
-            return res.status(200).json({allUser});
+            return res.status(200).json({allUsers});
         }
     }
 
@@ -65,4 +65,4 @@ class UserController {
     }
 }
 
-module.export = new UserController
+module.exports = new UserController

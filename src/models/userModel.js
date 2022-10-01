@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
         min : 1,
         max : 255
     },
+    phone : {
+        type : String,
+    },
     sex : {
         type: String,
         enum:['male','female']
@@ -29,7 +32,7 @@ const userSchema = new mongoose.Schema({
     },
     level : {
         type : String,
-        enum: ['entry-level','intermediate', 'Senior'],
+        enum: ['entry-level','intermediate', 'senior'],
         default: 'entry-level'
     },
     email : {
