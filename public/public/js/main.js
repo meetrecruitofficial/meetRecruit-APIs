@@ -52,7 +52,7 @@ signupForm.addEventListener('submit', async function (evt) {
             } else if (error) {
                 swal({
                     icon: "error",
-                    text: "error",
+                    text: error,
                     button: false,
                 })
             }
