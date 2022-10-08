@@ -20,6 +20,11 @@ const corsOptions ={
 
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Headers','Origin, X-Requested-With,Content-Type,Accept,Authorization')
+  next();
+});
 
 // router middlewares
 const indexRoute = require('./src/routes/index');
@@ -27,11 +32,7 @@ const UserRoute = require('./src/routes/userRoutes/auth');
 app.use('/',indexRoute);
 app.use('/api',UserRoute);
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Headers','Origin, X-Requested-With,Content-Type,Accept,Authorization')
-  next();
-});
+
 
 
 
