@@ -15,6 +15,10 @@ const { get } = require('..');
 // /api/register
 router.post('/register',register);
 
+//@desc: to signIn users 
+// /api/sign-in
+router.post('/sign-in',login);
+
 //@desc: to get all users
 // /api/users-count
 router.get('/users-count',getUsersCount);
