@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const corsOptions ={
    origin:'https://meetrecruitweb.netlify.app', 
-   credentials:true,            //access-control-allow-credentials:true
-   methods : ["GET","POST"],
+   credentials:false,            //access-control-allow-credentials:true
+//    optionSuccessStatus:200,
 }
 
 app.use(cors(corsOptions)) // Use this after the variable declaration
@@ -25,6 +25,11 @@ const indexRoute = require('./src/routes/index');
 const UserRoute = require('./src/routes/userRoutes/auth');
 app.use('/',indexRoute);
 app.use('/api',UserRoute);
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 
 
