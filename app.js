@@ -12,19 +12,19 @@ app.use(express.static("/public")); // to render static file like CSS, plain jav
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(cors());  // to initialise the cors middleware
 
-// const corsOptions ={
-//    origin:'https://meetrecruitweb.netlify.app', 
-//    credentials:false,//access-control-allow-credentials:true,
-//    optionSuccessStatus:200,
-// }
+const corsOptions ={
+   origin:'https://meetrecruitweb.netlify.app', 
+   credentials:false,//access-control-allow-credentials:true,
+   optionSuccessStatus:200,
+}
 
-// app.use(cors(corsOptions)) // Use this after the variable declaration
+app.use(cors(corsOptions)) // Use this after the variable declaration
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Headers','Origin, X-Requested-With,Content-Type,Accept,Authorization')
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Headers','Origin, X-Requested-With,Content-Type,Accept,Authorization')
+//   next();
+// });
 
 // router middlewares
 const indexRoute = require('./src/routes/index');
