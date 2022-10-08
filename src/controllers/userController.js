@@ -45,7 +45,7 @@ class UserController {
 
         const token = await loginUser(req.body);
         if (token){
-            return res.status(200).json({token})
+            return res.status(200).json({token:token})
         }
     }
 
