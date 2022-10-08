@@ -10,7 +10,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("/public")); // to render static file like CSS, plain javascript, fonts, images.
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());  // to initialise the cors middleware
+// app.use(cors());  // to initialise the cors middleware
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) // Use this after the variable declaration
 
 // router middlewares
 const indexRoute = require('./src/routes/index');
