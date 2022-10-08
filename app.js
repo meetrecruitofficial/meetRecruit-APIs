@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(cors());  // to initialise the cors middleware
 
 const corsOptions ={
-   origin:'*', 
+   origin:'https://meetrecruitweb.netlify.app', 
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
 }
