@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const corsOptions ={
    origin:'https://meetrecruitweb.netlify.app', 
    credentials:false,            //access-control-allow-credentials:true
-//    optionSuccessStatus:200,
+   optionSuccessStatus:200,
 }
 
 app.use(cors(corsOptions)) // Use this after the variable declaration
