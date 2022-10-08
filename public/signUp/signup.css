@@ -50,12 +50,12 @@
 #form {
   width: 100%;
   height: 100vh;
-  display: flex;
+   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   margin-left: 150px;
-
+ 
   /* flex-direction: column; */
 }
 
@@ -134,7 +134,7 @@ button {
   padding: 15px 0;
 }
 
-#width select {
+#width select{
   width: 39.50%;
   margin: 10px 0;
   border-radius: 10px;
